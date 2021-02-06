@@ -1,2 +1,1 @@
-# 3D-STG
-SR project conducted by Jusin Academy
+# SR_Project
