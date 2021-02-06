@@ -6,11 +6,11 @@
 // 검증 단계를 거쳐야함 
 // 아직은 임시 사용
 
-using namespace LinearMath;
+using namespace HyEngine::Math;
 
 Vector3 Vector3::Rand()
 {
-	Vector3 v = Vector3(MathUtil::RandF(0, 1), MathUtil::RandF(0, 1), MathUtil::RandF(0, 1));
+	Vector3 v = Vector3(RandF(0, 1), RandF(0, 1), RandF(0, 1));
 	return v.Normalized();
 }
 const std::string Vector3::Print() const
@@ -73,7 +73,7 @@ Vector2::Vector2(const D3DXVECTOR3& f3) : m_vector(f3.x, f3.y) {}
 
 Vector3::operator D3DXVECTOR3() const { return m_vector3; }
 
-LinearMath::Vector3::operator const D3DXVECTOR3() const
+Vector3::operator const D3DXVECTOR3() const
 {
 	return m_vector3;
 }
@@ -184,7 +184,7 @@ Quaternion::Quaternion(const D3DXMATRIX& rotMatrix)
 	this->S = 1;
 }
 
-LinearMath::Quaternion::Quaternion(const Quaternion & quaternion)
+Quaternion::Quaternion(const Quaternion & quaternion)
 {
 	this->V = quaternion.V;
 	this->S = quaternion.S;

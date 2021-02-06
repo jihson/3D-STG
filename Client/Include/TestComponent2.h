@@ -2,6 +2,7 @@
 
 #include "Component.h"
 
+using namespace HyEngine;
 
 class TestComponent2 : public Component
 {
@@ -31,6 +32,9 @@ public:
 	virtual void LateUpdate() override;
 	virtual void OnEnable() override;
 	virtual void OnDisable() override;
+
+	// Inherited via Component
+	virtual void Initialize();
 };
 //
 //class TestComponent2 : public Component

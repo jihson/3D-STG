@@ -5,6 +5,7 @@
 #include <sstream>
 
 using namespace std;
+using namespace HyEngine;
 
 void CString::SplitString(vector<string>* result, string origin, string tok)
 {

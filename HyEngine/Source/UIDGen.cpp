@@ -1,6 +1,7 @@
 #include "StandardEngineFramework.h"
 #include "UIDGen.h"
 
+using namespace HyEngine;
 
 IMPLEMENT_SINGLETON(UIDGen)
 

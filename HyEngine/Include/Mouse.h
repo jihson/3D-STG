@@ -3,89 +3,91 @@
 
 #define MAX_INPUT_MOUSE 8
 
-namespace Utility
+namespace HyEngine
 {
-	class Mouse
+	namespace IO
 	{
-	public:
-		Mouse();
-		~Mouse();
-
-		void SetHandle(HWND handle)
+		class Mouse
 		{
-			this->handle = handle;
-		}
+		public:
+			Mouse();
+			~Mouse();
 
-		void Update();
+			void SetHandle(HWND handle)
+			{
+				this->handle = handle;
+			}
 
-		LRESULT InputProc(UINT message, WPARAM wParam, LPARAM lParam);
+			void Update();
 
-		D3DXVECTOR3 GetPosition() { return position; }
+			LRESULT InputProc(UINT message, WPARAM wParam, LPARAM lParam);
 
-		bool Down(DWORD button)
-		{
-			if (!bMouseCaptured) return false;
-			return buttonMap[button] == BUTTON_INPUT_STATUS_DOWN;
-		}
+			D3DXVECTOR3 GetPosition() { return position; }
 
-		bool Up(DWORD button)
-		{
-			if (!bMouseCaptured) return false;
-			return buttonMap[button] == BUTTON_INPUT_STATUS_UP;
-		}
+			bool Down(DWORD button)
+			{
+				if (!bMouseCaptured) return false;
+				return buttonMap[button] == BUTTON_INPUT_STATUS_DOWN;
+			}
 
-		bool Press(DWORD button)
-		{
-			if (!bMouseCaptured) return false;
-			return buttonMap[button] == BUTTON_INPUT_STATUS_PRESS;
-		}
+			bool Up(DWORD button)
+			{
+				if (!bMouseCaptured) return false;
+				return buttonMap[button] == BUTTON_INPUT_STATUS_UP;
+			}
 
-		D3DXVECTOR3 GetMoveValue()
-		{
-			return wheelMoveValue;
-		}
+			bool Press(DWORD button)
+			{
+				if (!bMouseCaptured) return false;
+				return buttonMap[button] == BUTTON_INPUT_STATUS_PRESS;
+			}
 
-		inline bool IsCaptured() const { return bMouseCaptured; }
-		inline void CaptureMouse(bool bDoCapture)
-		{
-			bMouseCaptured = bDoCapture;
-		}
+			D3DXVECTOR3 GetMoveValue()
+			{
+				return wheelMoveValue;
+			}
 
-	private:
+			inline bool IsCaptured() const { return bMouseCaptured; }
+			inline void CaptureMouse(bool bDoCapture)
+			{
+				bMouseCaptured = bDoCapture;
+			}
 
-
-		HWND handle;
-		D3DXVECTOR3 position; //마우스 위치
-
-		byte buttonStatus[MAX_INPUT_MOUSE];
-		byte buttonOldStatus[MAX_INPUT_MOUSE];
-		byte buttonMap[MAX_INPUT_MOUSE];
-
-		D3DXVECTOR3 wheelStatus;
-		D3DXVECTOR3 wheelOldStatus;
-		D3DXVECTOR3 wheelMoveValue;
-
-		DWORD timeDblClk;
-		DWORD startDblClk[MAX_INPUT_MOUSE];
-		int buttonCount[MAX_INPUT_MOUSE];
+		private:
 
 
-		bool bMouseCaptured = true;
-		enum
-		{
-			MOUSE_ROTATION_NONE = 0,
-			MOUSE_ROTATION_LEFT,
-			MOUSE_ROTATION_RIGHT
+			HWND handle;
+			D3DXVECTOR3 position; //마우스 위치
+
+			byte buttonStatus[MAX_INPUT_MOUSE];
+			byte buttonOldStatus[MAX_INPUT_MOUSE];
+			byte buttonMap[MAX_INPUT_MOUSE];
+
+			D3DXVECTOR3 wheelStatus;
+			D3DXVECTOR3 wheelOldStatus;
+			D3DXVECTOR3 wheelMoveValue;
+
+			DWORD timeDblClk;
+			DWORD startDblClk[MAX_INPUT_MOUSE];
+			int buttonCount[MAX_INPUT_MOUSE];
+
+
+			bool bMouseCaptured = true;
+			enum
+			{
+				MOUSE_ROTATION_NONE = 0,
+				MOUSE_ROTATION_LEFT,
+				MOUSE_ROTATION_RIGHT
+			};
+
+			enum
+			{
+				BUTTON_INPUT_STATUS_NONE = 0,
+				BUTTON_INPUT_STATUS_DOWN,
+				BUTTON_INPUT_STATUS_UP,
+				BUTTON_INPUT_STATUS_PRESS,
+				BUTTON_INPUT_STATUS_DBLCLK
+			};
 		};
-
-		enum
-		{
-			BUTTON_INPUT_STATUS_NONE = 0,
-			BUTTON_INPUT_STATUS_DOWN,
-			BUTTON_INPUT_STATUS_UP,
-			BUTTON_INPUT_STATUS_PRESS,
-			BUTTON_INPUT_STATUS_DBLCLK
-		};
-	};
-
+	}
 }

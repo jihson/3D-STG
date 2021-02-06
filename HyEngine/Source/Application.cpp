@@ -1,5 +1,5 @@
 #include "StandardEngineFramework.h"
-#include "..\Include\Application.h"
+#include "Application.h"
 
 HWND g_hWnd;
 
@@ -12,11 +12,6 @@ Application::Application(LPCWSTR appName)
 {
 
 	Engine::Create();
-	//DirectXDevice::Create();
-	// template 
-
-
-
 }
 
 
@@ -29,23 +24,17 @@ bool Application::Init(HINSTANCE hInstance, int nCmdShow, EngineConfig engineCon
 {
 	m_hInstance = hInstance;
 
+
 	// LOG
 	InitLoggingService();
 	
-
-	// TODO : ENGINE->Initialize
-	// TODO : ENGINE->Load
 	// WINDOW
 	InitWindow();
-
 	ShowWindow(m_hWnd, nCmdShow);
+
+	// ENGINE
 	ENGINE->Initialize(m_hWnd, engineConfig);
 	ENGINE->Load();
-
-
-	
-	
-	
 
 	return true;
 }
@@ -67,11 +56,6 @@ void Application::Run()
 		}
 		if (KEYBOARD->Up(VK_ESCAPE))
 		{
-			/*if (MOUSE->IsCaptured())
-			{
-				MOUSE->CaptureMouse(false);
-			}*/
-			//else/* if (!ENGINE->IsLoading())*/
 			{
 				m_bAppWantsExit = true;
 			}

@@ -1,7 +1,7 @@
 #include "StandardEngineFramework.h"
 #include "Object.h"
-#include "IObjectFactory.h"
 
+using namespace HyEngine;
 
 Object::Object()
 	: m_bWantsDestroy(false)

@@ -14,6 +14,9 @@
 
 // CLASSES //////////////////////////////////////////////////////////////////////////////
 
+namespace HyEngine
+{
+
 	class Timer
 	{
 	private:
@@ -46,3 +49,5 @@
 		void tick();		// called every frame, lets the time tick
 		void stop();		// called when the game is paused
 	};
+
+}

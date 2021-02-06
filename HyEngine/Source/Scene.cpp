@@ -1,7 +1,9 @@
 #include "StandardEngineFramework.h"
-#include "..\Include\Scene.h"
+#include "Scene.h"
 #include "Renderer.h"
+#include "GameObject.h"
 
+using namespace HyEngine;
 
 Scene::Scene()
 {
@@ -33,25 +35,64 @@ void Scene::UnloadScene()
 
 void Scene::UpdateScene()
 {
+	/*
+		TODO 
+		해당 로직은 특성 상 반복이 빈번한데
+		이렇게 해도 괜찮은지 검토해야함.
+	*/
+
 	for (auto& obj : m_opaqueObjects)
 		obj->Update();
 	for (auto& obj : m_alphaObjects)
 		obj->Update();
+	for (auto& obj : m_invisibleObjects)
+		obj->Update();
 	
 	Update();
+
 
 	for (auto& obj : m_opaqueObjects)
 	{
 		obj->LateUpdate();
 		if (obj->m_bWantsDestroy)
-			SAFE_DELETE(obj);
+		{
+			m_removeFunctions.push_back([&]()->void
+			{
+				m_opaqueObjects.remove(obj);
+				SAFE_DELETE(obj);
+			});
+		}
 	}
 	for (auto& obj : m_alphaObjects)
 	{
 		obj->LateUpdate();
 		if (obj->m_bWantsDestroy)
-			SAFE_DELETE(obj);
+		{
+			m_removeFunctions.push_back([&]()->void
+			{
+				m_alphaObjects.remove(obj);
+				SAFE_DELETE(obj);
+			});
+		}
 	}
+	for (auto& obj : m_invisibleObjects)
+	{
+		obj->LateUpdate();
+		if (obj->m_bWantsDestroy)
+		{
+			m_removeFunctions.push_back([&]()->void
+			{
+				m_invisibleObjects.remove(obj);
+				SAFE_DELETE(obj);
+			});
+		}
+	}
+
+	for (auto& removeFunction : m_removeFunctions)
+	{
+		removeFunction();
+	}
+	m_removeFunctions.clear();
 }
 
 
@@ -72,7 +113,7 @@ void Scene::RenderScene(Renderer * renderer)
 	}
 
 	RenderUI();
-	RenderLights();
+	RenderLight();
 	RenderSkybox();
 }
 
@@ -86,13 +127,8 @@ void Scene::AddAlphaObject(GameObject * obj)
 	m_alphaObjects.push_back(obj);
 }
 
-
-void Scene::RenderLights() const
+void Scene::AddInvisibleObject(GameObject * obj)
 {
-	// TODO 
+	m_invisibleObjects.push_back(obj);
 }
 
-void Scene::RenderSkybox() const
-{
-	// TODO
-}

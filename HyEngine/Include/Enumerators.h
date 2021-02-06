@@ -51,6 +51,7 @@ enum class ERenderType
 {
 	RenderOpaque,
 	RenderAlpha,
+	None,
 };
 
 enum class EUpdateResult

@@ -1,8 +1,8 @@
 #include "StandardEngineFramework.h"
 #include "Engine.h"
-
-#include "TestScene.h"
 #include "Renderer.h"
+
+using namespace HyEngine;
 
 Settings::Engine Engine::sEngineSettigns ;
 
@@ -18,8 +18,8 @@ Engine::Engine()
 	UIDGen::Create();
 
 	m_pRenderer = new Renderer();
-	m_pMouse = new Utility::Mouse();
-	m_pKeyboard = new Utility::Keyboard();
+	m_pMouse = new IO::Mouse();
+	m_pKeyboard = new IO::Keyboard();
 	m_pTimer = new Timer();
 }
 Engine::~Engine()
@@ -77,8 +77,10 @@ void Engine::SimulateFrame()
 
 void Engine::RenderFrame()
 {
+	m_pRenderer->RenderBegin();
 	RenderDebug();
 	m_pActiveScene->RenderScene(m_pRenderer);
+	m_pRenderer->RenderEnd();
 }
 
 Scene * Engine::GetActiveScene()

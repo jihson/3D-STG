@@ -46,11 +46,14 @@
     <Filter Include="Behaviour">
       <UniqueIdentifier>{773fbacb-3926-44af-b90c-6477f542809d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{5af18d7e-ba53-4bbd-b098-5160a4c8e482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{e9700cad-b1ac-4768-bf95-e4ddaf9b4ce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Test.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Application.h">
       <Filter>Application</Filter>
     </ClInclude>
@@ -61,20 +64,11 @@
     <ClInclude Include="Include\Log.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Timer.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Include\StandardEngineFramework.h" />
     <ClInclude Include="Include\Engine.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Include\Singleton.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Keyboard.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Mouse.h">
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Include\Component.h">
@@ -86,13 +80,7 @@
     <ClInclude Include="Include\LinearMath.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Include\IScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\SceneView.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Include\Transform.h">
@@ -100,9 +88,6 @@
     </ClInclude>
     <ClInclude Include="Include\MathUtils.h">
       <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\IObject.h">
-      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Include\Object.h">
       <Filter>GameObject</Filter>
@@ -119,23 +104,8 @@
     <ClInclude Include="Include\IndexBuffer.h">
       <Filter>Render\InputAssembler</Filter>
     </ClInclude>
-    <ClInclude Include="Include\DirectXDevice.h">
-      <Filter>Render</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Renderer.h">
       <Filter>Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\RenderStructs.h">
-      <Filter>Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Camera.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\TriangleObj.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\TestScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Include\Enumerators.h">
       <Filter>Core</Filter>
@@ -143,23 +113,8 @@
     <ClInclude Include="Include\Layer.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="Include\IObjectFactory.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\GeometryFactory.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\TriangleComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\GameObjectManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Include\UIDGen.h">
       <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\IComponent.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="Include\Path.h">
       <Filter>Utilities</Filter>
@@ -176,41 +131,29 @@
     <ClInclude Include="Include\BrainTree.h">
       <Filter>AI</Filter>
     </ClInclude>
-    <ClInclude Include="Include\ObjectPool.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Include\ObjLoader.h">
       <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Fighter.h">
-      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Include\CString.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BehaviourSystem.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\EngineConfigurer.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Include\IRenderable.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="Include\GameManager.h">
-      <Filter>Manager</Filter>
+    <ClInclude Include="Include\Keyboard.h">
+      <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Include\UpdateDispatcher.h">
-      <Filter>Component</Filter>
+    <ClInclude Include="Include\Mouse.h">
+      <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Include\TestComponent.h">
-      <Filter>Component</Filter>
+    <ClInclude Include="Include\Timer.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DirectXDevice.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Test.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Application.cpp">
       <Filter>Application</Filter>
     </ClCompile>
@@ -220,26 +163,14 @@
     <ClCompile Include="Source\Log.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Timer.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Engine.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Keyboard.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Mouse.cpp">
-      <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Component.cpp">
       <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="Source\LinearMath.cpp">
       <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\IScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Scene</Filter>
@@ -249,9 +180,6 @@
     </ClCompile>
     <ClCompile Include="Source\MathUtils.cpp">
       <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\IObject.cpp">
-      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object.cpp">
       <Filter>GameObject</Filter>
@@ -268,44 +196,14 @@
     <ClCompile Include="Source\IndexBuffer.cpp">
       <Filter>Render\InputAssembler</Filter>
     </ClCompile>
-    <ClCompile Include="Source\DirectXDevice.cpp">
-      <Filter>Render</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Renderer.cpp">
       <Filter>Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\RenderStructs.cpp">
-      <Filter>Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Camera.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TriangleObj.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TestScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Layer.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="Source\IObjectFactory.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GeometryFactory.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TriangleComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameObjectManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UIDGen.cpp">
       <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\IComponent.cpp">
-      <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="Source\Path.cpp">
       <Filter>Utilities</Filter>
@@ -313,26 +211,20 @@
     <ClCompile Include="Source\EventDispatcher.cpp">
       <Filter>Event</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Fighter.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CString.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BehaviourSystem.cpp">
-      <Filter>Component</Filter>
+    <ClCompile Include="Source\Keyboard.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EngineConfigurer.cpp">
+    <ClCompile Include="Source\Mouse.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXDevice.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\UpdateDispatcher.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TestComponent.cpp">
-      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 
+using namespace HyEngine;
 class TestScene2 : public Scene
 {
 	// Inherited via Scene
@@ -8,6 +9,10 @@ class TestScene2 : public Scene
 	virtual void Load() override;
 	virtual void Unload() override;
 	virtual void RenderUI() const override;
+
+	// Inherited via Scene
+	virtual void RenderLight() const override;
+	virtual void RenderSkybox() const override;
 };
 //
 //class TestScene2 : public Scene

@@ -1,4 +1,3 @@
-
 #include "StandardEngineFramework.h"
 #include "TestScene2.h"
 #include "Fighter2.h"
@@ -60,7 +59,7 @@ void TestScene2::Load()
 	
 	
 		// 아래 예제는 active true로 시작하는 예
-		AddOpaqueObject(Fighter2::Create(this));
+		Fighter2::Create(this);
 	
 	#pragma endregion
 }
@@ -70,5 +69,13 @@ void TestScene2::Unload()
 }
 
 void TestScene2::RenderUI() const
+{
+}
+
+void TestScene2::RenderLight() const
+{
+}
+
+void TestScene2::RenderSkybox() const
 {
 }

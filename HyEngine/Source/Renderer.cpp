@@ -1,7 +1,8 @@
 #include "StandardEngineFramework.h"
 #include "Renderer.h"
 #include "GameObject.h"
-#include "IRenderable.h"
+
+using namespace HyEngine;
 
 Renderer::Renderer()
 {
@@ -12,35 +13,12 @@ Renderer::~Renderer()
 {
 }
 
-//bool Renderer::InsertGameObject(GameObject * go)
-//{
-//	//m_RenderObjects.emplace(std::make_pair(go->GetRenderType(), go));
-//	
-//	switch (go->GetRenderType())
-//	{
-//	case ERenderType::RenderAlpha:
-//		m_RenderAlpha.emplace_back(go);
-//		break;
-//	case ERenderType::RenderOpaque:
-//		m_RenderOpaque.emplace_back(go);
-//	default:
-//		break;
-//	}
-//
-//	return true;
-//}
-
-//void Renderer::RemoveGameObjecgt(GameObejct * go)
-//{
-//	//m_RenderObjects.erase()
-//}
-
 void Renderer::Render(IRenderable * renderable)
 {
 	renderable->Render();
 }
 
-void Renderer::RenderList(std::vector<class IRenderable*> renderables)
+void Renderer::RenderList(std::vector<IRenderable*> renderables)
 {
 	for (auto& renderable : renderables)
 	{

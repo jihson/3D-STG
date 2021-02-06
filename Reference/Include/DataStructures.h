@@ -1,6 +1,8 @@
 #pragma once
 #include "StandardEngineFramework.h"
 
+using namespace HyEngine;
+
 struct RendererState
 {
 	int numVertices;

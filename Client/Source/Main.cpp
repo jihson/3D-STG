@@ -13,8 +13,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR pScmdl, int iCmdSh
 
 	EngineConfig engineConfig;
 
-	//engineConfig.scenes.push_back(new TestScene2());
-	//engineConfig.defaultSceneIndex = 0;
+	engineConfig.scenes.push_back(new TestScene2());
+	engineConfig.defaultSceneIndex = 0;
 
 	if (VQDemo.Init(hInst, iCmdShow, engineConfig))
 	{

@@ -2,7 +2,7 @@
 #include "GameObject.h"
 #include "Component.h"
 
-
+using namespace HyEngine;
 
 GameObject::GameObject(ERenderType renderType, Scene* scene, const std::wstring& tag)
 	: Object(),
@@ -21,6 +21,9 @@ GameObject::GameObject(ERenderType renderType, Scene* scene, const std::wstring&
 	case ERenderType::RenderOpaque:
 		scene->AddOpaqueObject(this);
 		break;
+	case ERenderType::None :
+		scene->AddInvisibleObject(this);
+		break;
 	}
 }
 
@@ -29,16 +32,13 @@ GameObject::~GameObject()
 {
 	delete m_pTransform;
 	for (auto& com : m_components)
-		SAFE_DELETE(com);
+	{
+		SAFE_DELETE(com)
+	}
 	m_components.clear();
 }
 
-void GameObject::Initialize()
-{
 
-
-
-}
 
 void GameObject::Update()
 {
@@ -56,15 +56,22 @@ void GameObject::LateUpdate()
 	for (auto& com : m_components)
 	{
 		if (com->GetBehaviourType() & BehaviourType::LateUpdate)
-		{
 			com->LateUpdate();
-		}
 
 		if (com->m_bWantsDestroy)
 		{
-			SAFE_DELETE(com);
+			m_removeFunctions.push_back([&]() ->void
+			{
+				m_components.remove(com);
+				SAFE_DELETE(com);
+			});
 		}
 	}
+	for (auto& removeFunction : m_removeFunctions)
+	{
+		removeFunction();
+	}
+	m_removeFunctions.clear();
 
 
 }

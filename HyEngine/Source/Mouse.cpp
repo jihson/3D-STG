@@ -1,7 +1,7 @@
 #include "StandardEngineFramework.h"
 #include "Mouse.h"
 
-using namespace Utility;
+using namespace HyEngine::IO;
 
 Mouse::Mouse()
 {

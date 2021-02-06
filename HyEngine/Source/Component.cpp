@@ -2,6 +2,8 @@
 #include "..\Include\Component.h"
 
 
+using namespace HyEngine;
+
 
 Component::Component(DWORD behaviourType, GameObject* owner)
 	: Object(),

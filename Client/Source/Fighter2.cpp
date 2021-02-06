@@ -4,14 +4,9 @@
 #include "VertexTypes.h"
 #include "TestComponent2.h"
 #include "Scene.h"
-//Fighter2::Fighter2(Scene* scene)
-//	: GameObject(ERenderType::RenderOpaque, scene, Tags::Player)
-//{
-//
-//	AddComponent(TestComponent2::Create(this));
-//
-//
-//}
+
+using namespace HyEngine;
+
 Fighter2::Fighter2(Scene* scene)
 	: GameObject(ERenderType::RenderOpaque, scene, Tags::Player)
 {
@@ -38,9 +33,9 @@ void Fighter2::Initialize()
 	//objl::Loader loader;
 	//loader.LoadFile("../Resources/knife_LOD2.obj");
 	//m_pTransform = new Transform();
-	objl::Loader loader;
+	HyEngine::IO::Loader loader;
 	loader.LoadFile("../Resources/knife_LOD2.obj");
-	m_pTransform = new Transform();
+	m_pTransform = new HyEngine::Transform();
 
 	//std::vector <objl::Vertex > vecs = loader.LoadedVertices.size();
 
@@ -181,7 +176,7 @@ void Fighter2::Render()
  	D3DXMatrixLookAtLH(&viewMatrix, &position, &target, &up);
  
  
- 	D3DXMatrixIdentity(&viewMatrix);
+ //	D3DXMatrixIdentity(&viewMatrix);
  	DEVICE->SetTransform(D3DTS_VIEW, &viewMatrix);
  
  	angle += 0.001f;

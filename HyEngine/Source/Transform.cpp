@@ -1,7 +1,9 @@
 #include "StandardEngineFramework.h"
 #include "Transform.h"
-using namespace LinearMath;
 
+
+
+using namespace HyEngine::Math;
 
 Transform::Transform(const Vector3 & position, const Quaternion & rotation, const Vector3 & scale)
 	: 

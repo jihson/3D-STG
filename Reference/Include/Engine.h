@@ -6,74 +6,81 @@ struct EngineDesc
 	std::vector<Scene*> scenes;
 };
 
-class ENGINE_DLL Engine
+namespace HyEngine
 {
-	friend class Application;
+	class ENGINE_DLL Engine
+	{
+		friend class Application;
 
-	DECLARE_SINGLETON(Engine)
-private:
-	Engine();
-	~Engine();
+		DECLARE_SINGLETON(Engine)
+	private:
+		Engine();
+		~Engine();
 
-public :
-	bool Initialize(HWND hWnd, EngineConfig engineConfig);
-	void Exit();
+	public:
+		bool Initialize(HWND hWnd, EngineConfig engineConfig);
+		void Exit();
 
-	bool Load();
-	void SimulateFrame();
-	void RenderFrame();
+		// Load the required resources
+		bool Load();
 
-	inline void Pause() { m_bIsPaused = true; }
-	inline void Unpause() { m_bIsPaused = false; }
+		// The basic Logic works in this function.
+		void SimulateFrame();
+		// The basic Render works in this function.
+		void RenderFrame();
 
-	inline Utility::Mouse* GetMouse() const { return m_pMouse; }
-	inline Utility::Keyboard* GetKeyboard() const { return m_pKeyboard; }
-	inline Timer* GetTimer() const { return m_pTimer; }
+		// Engine Pause
+		inline void Pause() { m_bIsPaused = true; }
+		inline void Unpause() { m_bIsPaused = false; }
 
-public :
-	class Scene* GetActiveScene();
-private :
-	
+		// Input
+		inline IO::Mouse* GetMouse() const { return m_pMouse; }
+		inline IO::Keyboard* GetKeyboard() const { return m_pKeyboard; }
+		inline Timer* GetTimer() const { return m_pTimer; }
 
-	// °ø¿ë ½¦ÀÌ´õ > ?
-	bool LoadShaders();
-
-	void LoadScenes();
-
-
-	//void RenderUI();
-	void RenderDebug();
+	public:
+		class Scene* GetActiveScene();
+	private:
 
 
-	bool inline IsLoading() const { return m_bLoading; }
+		// °ø¿ë ½¦ÀÌ´õ > ?
+		bool LoadShaders();
+
+		void LoadScenes();
 
 
-	// TOGGLES
-	void inline TogglePause() { m_bIsPaused = !m_bIsPaused; }
-private :
-	// static 
-	static Settings::Engine sEngineSettigns;
-
-	Utility::Keyboard *m_pKeyboard;
-	Utility::Mouse *m_pMouse;
-	Timer *m_pTimer;
-private :
-	// scene
+		//void RenderUI();
+		void RenderDebug();
 
 
+		bool inline IsLoading() const { return m_bLoading; }
 
-	// engine state
-	bool m_bIsPaused;
 
-	int m_currentLevel;
-	// THREADED LOADING
-	bool m_bLoading;
+		// TOGGLES
+		void inline TogglePause() { m_bIsPaused = !m_bIsPaused; }
+	private:
+		// static 
+		static Settings::Engine sEngineSettigns;
 
-private :
-	
-	class Renderer * m_pRenderer;
+		IO::Keyboard *m_pKeyboard;
+		IO::Mouse *m_pMouse;
+		Timer *m_pTimer;
+	private:
 
-	EngineConfig engineConfig;
-	class Scene* m_pActiveScene;
-	std::vector<Scene*> m_scenes;
-};
+		// engine state
+		bool m_bIsPaused;
+
+		int m_currentLevel;
+		// THREADED LOADING
+		bool m_bLoading;
+
+	private:
+
+		class Renderer * m_pRenderer;
+
+		EngineConfig engineConfig;
+		class Scene* m_pActiveScene;
+		std::vector<Scene*> m_scenes;
+	};
+
+}
