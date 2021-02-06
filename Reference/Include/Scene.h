@@ -45,7 +45,8 @@ namespace HyEngine
 		void AddInvisibleObject(class GameObject* obj);
 
 	private:
-		// TODO : Camera
+		// TODO : 
+
 		int m_selectedCamera;
 
 

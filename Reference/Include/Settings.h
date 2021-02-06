@@ -47,11 +47,6 @@ namespace HyEngine
 			int vsync;
 		};
 
-		// TODO
-		struct Camera
-		{
-
-		};
 
 		struct Engine
 		{

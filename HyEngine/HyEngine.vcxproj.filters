@@ -7,9 +7,6 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{3516d8e4-d681-4a09-aee2-dc1866191eff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject">
-      <UniqueIdentifier>{11ecabc2-1f15-485c-b0b3-76f4d9cc9531}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{73b5f7cd-74a3-47e2-a1e8-4eff5f6ef780}</UniqueIdentifier>
     </Filter>
@@ -31,26 +28,26 @@
     <Filter Include="Scripts">
       <UniqueIdentifier>{81dbfa73-eb56-48fb-b407-2297aa5f65cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{9517194f-799f-4d3f-ae7e-dd8220171c81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Event">
       <UniqueIdentifier>{b95c080f-98a6-4631-a501-9e12399dfcc4}</UniqueIdentifier>
     </Filter>
     <Filter Include="AI">
       <UniqueIdentifier>{52025736-8201-4289-b47e-c4a223829451}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{2b6f534b-95ac-40e9-9a60-f55daf9b0c9f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Behaviour">
       <UniqueIdentifier>{773fbacb-3926-44af-b90c-6477f542809d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{5af18d7e-ba53-4bbd-b098-5160a4c8e482}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Time">
       <UniqueIdentifier>{e9700cad-b1ac-4768-bf95-e4ddaf9b4ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{5af18d7e-ba53-4bbd-b098-5160a4c8e482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{11ecabc2-1f15-485c-b0b3-76f4d9cc9531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{a3c8546a-ef7e-4bc5-a9d6-724bd5e5fb4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,10 +87,10 @@
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Include\Object.h">
-      <Filter>GameObject</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Include\GameObject.h">
-      <Filter>GameObject</Filter>
+      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Include\VertexTypes.h">
       <Filter>Geometry</Filter>
@@ -131,9 +128,6 @@
     <ClInclude Include="Include\BrainTree.h">
       <Filter>AI</Filter>
     </ClInclude>
-    <ClInclude Include="Include\ObjLoader.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Include\CString.h">
       <Filter>Utilities</Filter>
     </ClInclude>
@@ -141,16 +135,22 @@
       <Filter>Render</Filter>
     </ClInclude>
     <ClInclude Include="Include\Keyboard.h">
-      <Filter>Input</Filter>
+      <Filter>IO</Filter>
     </ClInclude>
     <ClInclude Include="Include\Mouse.h">
-      <Filter>Input</Filter>
+      <Filter>IO</Filter>
     </ClInclude>
     <ClInclude Include="Include\Timer.h">
       <Filter>Time</Filter>
     </ClInclude>
     <ClInclude Include="Include\DirectXDevice.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ObjLoader.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Camera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,10 +182,10 @@
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Object.cpp">
-      <Filter>GameObject</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameObject.cpp">
-      <Filter>GameObject</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="Source\VertexTypes.cpp">
       <Filter>Geometry</Filter>
@@ -215,16 +215,19 @@
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Keyboard.cpp">
-      <Filter>Input</Filter>
+      <Filter>IO</Filter>
     </ClCompile>
     <ClCompile Include="Source\Mouse.cpp">
-      <Filter>Input</Filter>
+      <Filter>IO</Filter>
     </ClCompile>
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Time</Filter>
     </ClCompile>
     <ClCompile Include="Source\DirectXDevice.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera.cpp">
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

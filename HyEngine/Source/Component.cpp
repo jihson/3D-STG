@@ -1,6 +1,7 @@
 #include "StandardEngineFramework.h"
-#include "..\Include\Component.h"
-
+#include "Component.h"
+#include "Transform.h"
+#include "GameObject.h"
 
 using namespace HyEngine;
 
@@ -44,4 +45,14 @@ void Component::Initialize()
 bool Component::CompareTag(std::wstring tag)
 {
 	return m_tag == tag;
+}
+
+Transform * HyEngine::Component::GetTransform()
+{
+	return m_pOwner->m_pTransform;
+}
+
+GameObject* HyEngine::Component::GetGameObejct()
+{
+	return m_pOwner;
 }

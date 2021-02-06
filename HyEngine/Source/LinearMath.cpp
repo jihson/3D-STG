@@ -404,3 +404,4 @@ Vector3 Quaternion::TransformVector(const Vector3 & v) const
 	Quaternion rotated = *this * pure * this->Conjugate();
 	return Vector3(rotated.V);
 }
+

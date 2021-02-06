@@ -19,6 +19,7 @@ namespace HyEngine
 		void RenderBegin();
 		void RenderEnd();
 
+
 		// default setter 
 		void SetOpaqueContext();
 

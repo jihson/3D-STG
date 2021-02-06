@@ -51,6 +51,34 @@ void Transform::RotateAroundPointAndAxis(const Vector3 & axis, float angle, cons
 	m_position = point+R; 
 }
 
+
+Vector3 HyEngine::Transform::Forward()
+{
+	Vector3 forwardVec;
+	memcpy(&forwardVec, &GetWorldMatrix().m[2][0], sizeof(Vector3));
+	D3DXVec3Normalize(&forwardVec.operator D3DXVECTOR3(), &forwardVec.operator D3DXVECTOR3());
+
+	return forwardVec;
+}
+
+Vector3 HyEngine::Transform::Right()
+{
+	Vector3 rightVec;
+	memcpy(&rightVec, &GetWorldMatrix().m[0][0], sizeof(Vector3));
+	D3DXVec3Normalize(&rightVec.operator D3DXVECTOR3(), &rightVec.operator D3DXVECTOR3());
+
+	return rightVec;
+}
+
+Vector3 HyEngine::Transform::Up()
+{
+	Vector3 upVec;
+	memcpy(&upVec, &GetWorldMatrix().m[1][0], sizeof(Vector3));
+	D3DXVec3Normalize(&upVec.operator D3DXVECTOR3(), &upVec.operator D3DXVECTOR3());
+
+	return upVec;
+}
+
 D3DXMATRIX Transform::WorldTransformationMatrix() const
 {
 	D3DXMATRIX output;
@@ -88,6 +116,22 @@ D3DXMATRIX Transform::NormalMatrix(const D3DXMATRIX & world)
 	D3DXMatrixInverse(&nrm, &det, &nrm);
 	D3DXMatrixTranspose(&nrm, &nrm);
 	return nrm;
+}
+
+D3DXMATRIX HyEngine::Transform::GetWorldMatrix()
+{
+	D3DXMATRIX matScale;
+	D3DXMATRIX matRot;
+	D3DXMATRIX matPos;
+
+	D3DXMatrixScaling(&matScale, m_scale.x(), m_scale.y(), m_scale.z());
+	//D3DXQUATERNION quaternion = m_rotation;
+	D3DXMatrixRotationQuaternion(&matRot, &m_rotation.operator D3DXQUATERNION());
+	D3DXMatrixTranslation(&matPos, m_position.x(), m_position.y(), m_position.z());
+
+	m_worldMatrix = matScale * matRot * matPos;
+
+	return m_worldMatrix;
 }
 
 Transform * Transform::Find(std::wstring name)

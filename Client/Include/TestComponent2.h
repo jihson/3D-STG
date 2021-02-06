@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Component.h"
 
 using namespace HyEngine;
@@ -35,6 +34,9 @@ public:
 
 	// Inherited via Component
 	virtual void Initialize();
+
+private :
+	float moveSpeed = 10;
 };
 //
 //class TestComponent2 : public Component

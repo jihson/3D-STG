@@ -1,6 +1,7 @@
 #include "StandardEngineFramework.h"
 #include "Engine.h"
 #include "Renderer.h"
+#include "Camera.h"
 
 using namespace HyEngine;
 
@@ -21,6 +22,7 @@ Engine::Engine()
 	m_pMouse = new IO::Mouse();
 	m_pKeyboard = new IO::Keyboard();
 	m_pTimer = new Timer();
+	m_pCamera = new Camera();
 }
 Engine::~Engine()
 {
@@ -28,6 +30,7 @@ Engine::~Engine()
 	delete m_pKeyboard;
 	delete m_pMouse;
 	delete m_pRenderer;
+	delete m_pCamera;
 	DirectXDevice::Destroy();
 	UIDGen::Destroy();
 }
@@ -41,6 +44,14 @@ bool Engine::Initialize(HWND hWnd, EngineConfig engineConfig)
 	this->engineConfig = engineConfig;
 	m_scenes = engineConfig.scenes;
 
+	// set default camera option
+	m_pCamera->SetProjectionMatrix
+	(
+		D3DX_PI * 0.5f , // 90 - degree
+		WinMaxWidth / WinMaxHeight,
+		1.0f, 
+		1000.0f
+	);
 
 
 
@@ -77,12 +88,18 @@ void Engine::SimulateFrame()
 
 void Engine::RenderFrame()
 {
+	DEVICE->SetTransform(D3DTS_PROJECTION, &m_pCamera->GetProjectionMatrix());
+	DEVICE->SetTransform(D3DTS_VIEW, &m_pCamera->GetViewMatrix());
 	m_pRenderer->RenderBegin();
 	RenderDebug();
 	m_pActiveScene->RenderScene(m_pRenderer);
 	m_pRenderer->RenderEnd();
 }
 
+Camera * Engine::GetCamera() const 
+{
+	return m_pCamera;
+}
 Scene * Engine::GetActiveScene()
 {
 	return m_pActiveScene;

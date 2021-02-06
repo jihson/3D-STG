@@ -1,46 +1,7 @@
-#include "StandardEngineFramework.h"
+#include "stdafx.h"
 #include "TestScene2.h"
 #include "Fighter2.h"
 #include "Renderer.h"
-//
-//
-//TestScene2::TestScene2()
-//	: Scene()
-//{
-//
-//}
-//
-//
-//TestScene2::~TestScene2()
-//{
-//}
-//
-//
-//
-//void TestScene2::Load()
-//{
-//
-//
-
-//
-//
-//}
-//
-//void TestScene2::Unload()
-//{
-//
-//}
-//
-//void TestScene2::RenderUI() const
-//{
-//
-//}
-//
-//void TestScene2::Update()
-//{
-//
-//}
-//
 
 void TestScene2::Update()
 {
@@ -70,10 +31,24 @@ void TestScene2::Unload()
 
 void TestScene2::RenderUI() const
 {
+
 }
 
 void TestScene2::RenderLight() const
 {
+	D3DLIGHT9 dirLight;
+	ZeroMemory(&dirLight, sizeof(dirLight));
+	dirLight.Type = D3DLIGHT_DIRECTIONAL;
+	dirLight.Ambient = D3DXCOLOR(0.8f, 0.8f, 0.8f, 1.0f);
+	dirLight.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	dirLight.Specular = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
+	dirLight.Direction = D3DXVECTOR3(1.0f, 0.0f, 0.0f);
+	DEVICE->SetLight(0, &dirLight);
+	DEVICE->LightEnable(0, true);
+
+	DEVICE->SetRenderState(D3DRS_NORMALIZENORMALS, true);
+	DEVICE->SetRenderState(D3DRS_SPECULARENABLE, true);
+
 }
 
 void TestScene2::RenderSkybox() const

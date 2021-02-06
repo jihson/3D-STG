@@ -47,6 +47,10 @@ namespace HyEngine
 			inline Vector3 operator+(const Vector3& vec) const { return Vector3(this->x() + vec.x(), this->y() + vec.y(), this->z() + vec.z()); }
 			inline Vector3 operator-(const Vector3& vec) const { return Vector3(this->x() - vec.x(), this->y() - vec.y(), this->z() - vec.z()); }
 			inline Vector3& operator += (const Vector3& vec) { *this = *this + vec; return *this; }
+			inline Vector3 operator*(float scalar) const { return Vector3(this->x() * scalar, this->y() * scalar, this->z() * scalar); }
+			inline Vector3 operator+(float scalar) const { return Vector3(this->x() + scalar, this->y() + scalar, this->z() + scalar); }
+			inline Vector3 operator-(float scalar) const { return Vector3(this->x() - scalar, this->y() - scalar, this->z() - scalar); }
+			inline Vector3 operator- () const { return *this * -1; }
 
 			inline float& Vector3::x() { return m_vector3.x; }
 			inline float& Vector3::y() { return m_vector3.y; }
@@ -116,8 +120,8 @@ namespace HyEngine
 			Quaternion(const Quaternion& quaternion);
 			Quaternion(float s, const D3DXVECTOR3& vec);
 
-			operator D3DXQUATERNION() const { return *this; }
-			operator D3DXMATRIX() const { return *this; }
+			operator D3DXQUATERNION() const { return D3DXQUATERNION(V.x(), V.y(), V.z(), S); }
+			operator D3DXMATRIX() const { return Matrix(); }
 			Quaternion  operator+(const Quaternion& q) const;
 			Quaternion  operator*(const Quaternion& q) const;
 			Quaternion  operator*(float c) const;
@@ -130,6 +134,7 @@ namespace HyEngine
 			Quaternion&	Normalize();
 
 			Vector3 TransformVector(const Vector3& vec) const;
+
 
 		public: // used by operator()s
 			Quaternion(float s, const Vector3& v);

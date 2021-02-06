@@ -17,7 +17,7 @@
 namespace HyEngine
 {
 
-	class Timer
+	class ENGINE_DLL Timer
 	{
 	private:
 		// times measured in counts

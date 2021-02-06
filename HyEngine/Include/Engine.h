@@ -37,7 +37,7 @@ namespace HyEngine
 		inline IO::Mouse* GetMouse() const { return m_pMouse; }
 		inline IO::Keyboard* GetKeyboard() const { return m_pKeyboard; }
 		inline Timer* GetTimer() const { return m_pTimer; }
-
+		class Camera* GetCamera() const;
 	public:
 		class Scene* GetActiveScene();
 	private:
@@ -65,6 +65,8 @@ namespace HyEngine
 		IO::Keyboard *m_pKeyboard;
 		IO::Mouse *m_pMouse;
 		Timer *m_pTimer;
+
+		class Camera* m_pCamera;
 	private:
 
 		// engine state

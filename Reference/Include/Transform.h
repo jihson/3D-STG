@@ -52,6 +52,11 @@ namespace HyEngine
 		inline void RotateInWorldSpace(const Quaternion& quaternion) { m_rotation = quaternion * m_rotation; }
 		inline void RotateInLocalSpace(const Quaternion& quaternion) { m_rotation = m_rotation * quaternion; }
 
+		Vector3 Forward();
+		Vector3 Right();
+		Vector3 Up();
+
+
 		inline void ResetPosition() { m_position = Vector3(0, 0, 0); }
 		inline void ResetRotation() { m_rotation = Quaternion::Identity(); }
 		inline void ResetScale() { m_scale = Vector3(1, 1, 1); }
@@ -63,6 +68,7 @@ namespace HyEngine
 
 		static D3DXMATRIX NormalMatrix(const D3DXMATRIX& world);
 
+		D3DXMATRIX GetWorldMatrix();
 
 		// -----------------------------------------------------------
 		// PUBLIC METHODS
@@ -80,11 +86,6 @@ namespace HyEngine
 
 		void SetParent(Transform* parent);
 
-		template <typename ... Args>
-		static std::shared_ptr<Transform> Create(Args ...args)
-		{
-			std::shared_ptr<Transform> trComponent = make_shared(args);
-		}
 
 		//----------------------------------------------------------------------------------------------------------------
 		// DATA
@@ -100,7 +101,7 @@ namespace HyEngine
 		Transform *		 m_parent;
 		Transform *	     m_root;
 
-
+		D3DXMATRIX m_worldMatrix;
 	public:
 
 	public:

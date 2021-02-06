@@ -40,6 +40,7 @@ void Renderer::RenderEnd()
 	DEVICE->Present(nullptr, nullptr, g_hWnd, nullptr);
 }
 
+
 void Renderer::SetOpaqueContext()
 {
 }

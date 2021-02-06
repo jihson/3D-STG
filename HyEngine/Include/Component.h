@@ -43,10 +43,8 @@ namespace HyEngine
 			return true;
 		}
 
-		GameObject* GetGameObejct()
-		{
-			return m_pOwner;
-		}
+		GameObject* GetGameObejct();
+		class Transform* GetTransform();
 		DWORD GetBehaviourType()
 		{
 			return m_behviourType;
