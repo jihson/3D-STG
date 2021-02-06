@@ -1,7 +1,7 @@
 #pragma once
 
 
-class DirectXDevice
+class ENGINE_DLL DirectXDevice
 {
 	DECLARE_SINGLETON(DirectXDevice)
 
