@@ -106,8 +106,8 @@ void Fighter2::Initialize()
 //
 void Fighter2::Render()
 {
-	DEVICE->SetTransform(D3DTS_WORLD, &m_pTransform->GetWorldMatrix());
- 
+	GameObject::Render();
+
  	DEVICE->SetTexture(0, texture);
  
  	DEVICE->SetStreamSource(0, vertexBuffer, 0, sizeof(TextureVertex));

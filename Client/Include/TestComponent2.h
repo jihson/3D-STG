@@ -36,7 +36,7 @@ public:
 	virtual void Initialize();
 
 private :
-	float moveSpeed = 10;
+	float moveSpeed = 1000;
 };
 //
 //class TestComponent2 : public Component

@@ -11,11 +11,13 @@ namespace HyEngine
 		explicit Camera(const Vector3& originPos, const Quaternion& originRot, const Vector3& originScale);
 		virtual ~Camera();
 
+		virtual void Initialize();
 		virtual void Update();
 
 
 
 		void SetProjectionMatrix(float fovy, float screenAspect, float screenNear, float screenFar);
+		void SetViewMatrix(const D3DXVECTOR3& target);
 		Vector3 GetPosition() const;
 		D3DXMATRIX GetViewMatrix() const;
 		D3DXMATRIX GetProjectionMatrix() const;
@@ -34,6 +36,7 @@ namespace HyEngine
 		float m_rotSpeed = 1; 
 
 		D3DXMATRIX m_matProj;
+		D3DXMATRIX m_matView;
 
 		class Transform * m_pTransform;
 	};

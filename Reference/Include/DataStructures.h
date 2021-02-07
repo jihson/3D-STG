@@ -1,6 +1,6 @@
 #pragma once
 #include "StandardEngineFramework.h"
-
+#include "Camera.h"
 using namespace HyEngine;
 
 struct RendererState
@@ -28,5 +28,6 @@ struct ENGINE_DLL EngineConfig
 	bool bShowProfiler;
 
 	std::vector<Scene*> scenes = {};
+	Camera * camera = nullptr;
 	int defaultSceneIndex;
 };

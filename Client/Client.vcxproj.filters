@@ -16,6 +16,9 @@
     <Filter Include="Component">
       <UniqueIdentifier>{48022d61-1720-485e-a011-69642d5f670f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{c447bc58-aac3-4275-85b1-9bfb6cbc2989}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Test2.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="Source\TestComponent2.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SampleCamera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Test2.h">
@@ -47,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="Include\TestComponent2.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\SampleCamera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

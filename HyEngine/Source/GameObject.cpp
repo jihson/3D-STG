@@ -13,18 +13,6 @@ GameObject::GameObject(ERenderType renderType, Scene* scene, const std::wstring&
 {
 	m_pTransform = new Transform();
 
-	switch (renderType)
-	{
-	case ERenderType::RenderAlpha :
-		scene->AddAlphaObject(this);
-		break;
-	case ERenderType::RenderOpaque:
-		scene->AddOpaqueObject(this);
-		break;
-	case ERenderType::None :
-		scene->AddInvisibleObject(this);
-		break;
-	}
 }
 
 
@@ -74,6 +62,11 @@ void GameObject::LateUpdate()
 	m_removeFunctions.clear();
 
 
+}
+
+void GameObject::Render()
+{
+	DEVICE->SetTransform(D3DTS_WORLD, &m_pTransform->GetWorldMatrix());
 }
 
 bool GameObject::CompareTag(std::wstring tag)

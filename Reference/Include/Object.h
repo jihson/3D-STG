@@ -20,6 +20,7 @@ namespace HyEngine
 		// PUBLIC METHODS
 		// -----------------------------------
 		inline UINT GetInstanceID() { return m_id; }
+		inline 	bool CompareName(std::wstring name) { return m_name == name; }
 		std::wstring ToString() { return m_name; }
 
 		// -----------------------------------

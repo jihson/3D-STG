@@ -29,7 +29,7 @@ void Renderer::RenderList(std::vector<IRenderable*> renderables)
 
 void Renderer::RenderBegin()
 {
-	DEVICE->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(255, 0, 0, 0), 1.f, 0);
+	DEVICE->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_STENCIL | D3DCLEAR_ZBUFFER, clearColor, 1.f, 0);
 	DEVICE->BeginScene();
 
 }
@@ -37,7 +37,7 @@ void Renderer::RenderBegin()
 void Renderer::RenderEnd()
 {
 	DEVICE->EndScene();
-	DEVICE->Present(nullptr, nullptr, g_hWnd, nullptr);
+	DEVICE->Present(nullptr, nullptr, nullptr, nullptr);
 }
 
 

@@ -29,6 +29,9 @@ namespace HyEngine
 		void BeginRenderEvent(std::wstring message);
 		void EndRenderEvent(std::wstring message);
 
+	private :
+		D3DXCOLOR clearColor = 0xff555566;
+
 	};
 
 }

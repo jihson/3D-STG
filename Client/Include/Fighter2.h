@@ -4,7 +4,7 @@
 
 using namespace HyEngine;
 
-class Fighter2 : public GameObject
+class Fighter2 final : public GameObject
 {
 private  :
 	explicit Fighter2(class Scene* scene);
