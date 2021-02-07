@@ -135,9 +135,12 @@
     <ClInclude Include="Include\EventTypes.h" />
     <ClInclude Include="Include\GameObject.h" />
     <ClInclude Include="Include\GameObjectQuad.h" />
+    <ClInclude Include="Include\ILight.h" />
     <ClInclude Include="Include\IndexBuffer.h" />
     <ClInclude Include="Include\IndexTypes.h" />
     <ClInclude Include="Include\IRenderable.h" />
+    <ClInclude Include="Include\ISkybox.h" />
+    <ClInclude Include="Include\IUserInterface.h" />
     <ClInclude Include="Include\Keyboard.h" />
     <ClInclude Include="Include\Layer.h" />
     <ClInclude Include="Include\LinearMath.h" />

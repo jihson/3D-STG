@@ -1,5 +1,7 @@
 #pragma once
-
+#include "IUserInterface.h"
+#include "ISkybox.h"
+#include "ILight.h"
 
 
 namespace HyEngine
@@ -21,9 +23,22 @@ namespace HyEngine
 			Engine에서 Debug를 그린다.
 			GameObject에서 각종 오브젝트를 그린다.
 		*/
-		virtual void RenderUI() const = 0;
-		virtual void RenderLight() const = 0;
-		virtual void RenderSkybox() const = 0;
+	private :
+
+		// Scene을 상속받은 Scene클래스에선
+		// UI, Light, Skybox를 Add 해주기만 하면
+		// 알아서 동작한다.
+		void RenderGameObject(class Renderer* renderer) const;
+		void RenderUI(class Renderer* renderer) const;
+		void RenderLight(class Renderer* renderer) const ;
+		void RenderSkybox(class Renderer* renderer) const ;
+
+		void UpdateGameObject();
+		void UpdateUI();
+		void UpdateLight();
+		void UpdateSkybox();
+
+		void LateUpdateGameObject();
 
 	public:
 		explicit Scene();
@@ -43,7 +58,9 @@ namespace HyEngine
 		void AddOpaqueObject(class GameObject* obj);
 		void AddAlphaObject(class GameObject* obj);
 		void AddInvisibleObject(class GameObject* obj);
-
+		void AddUserInterface(class IUserInterface* ui);
+		void AddLight(class ILight* light);
+		void SetSkybox(class ISkybox* skybox);
 		/*
 		 해당 오브젝트가 어떤 종류에 속할 지 모를 떄 
 		 전체적으로 검색합니다.
@@ -82,6 +99,15 @@ namespace HyEngine
 		std::list<GameObject* > m_alphaObjects;
 		// Invisible Objects
 		std::list<GameObject* > m_invisibleObjects;
+
+		// UI Objects
+		std::list<IUserInterface*> m_uiObejcts;
+
+		// lights
+		std::list<ILight* > m_lights;
+
+		ISkybox* m_pSkybox;
+
 
 		/*
 			삭제 로직을 담는 함수.
