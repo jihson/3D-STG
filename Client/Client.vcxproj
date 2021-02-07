@@ -134,6 +134,7 @@
     <ClInclude Include="Include\Test2.h" />
     <ClInclude Include="Include\TestComponent2.h" />
     <ClInclude Include="Include\TestScene2.h" />
+    <ClInclude Include="Include\UIElement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Fighter2.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Source\Test2.cpp" />
     <ClCompile Include="Source\TestComponent2.cpp" />
     <ClCompile Include="Source\TestScene2.cpp" />
+    <ClCompile Include="Source\UIElement.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
