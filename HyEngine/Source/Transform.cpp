@@ -2,7 +2,6 @@
 #include "Transform.h"
 
 
-
 using namespace HyEngine::Math;
 
 Transform::Transform(const Vector3 & position, const Quaternion & rotation, const Vector3 & scale)
@@ -144,24 +143,56 @@ Transform * Transform::GetChild(int index)
 	return nullptr;
 }
 
-void Transform::LookAt(const Transform & target)
+void Transform::LookAt(Transform & target)
 {
+	D3DXMATRIX lookAtMat;
+	D3DXVECTOR3 vLook = m_position - target.m_position;
+	D3DXMatrixLookAtLH
+	(
+		&lookAtMat,
+		&m_position.operator const D3DXVECTOR3(),
+		&vLook,
+		&Up().operator const D3DXVECTOR3()
+	);
+	m_position = WorldMat2PosVec(lookAtMat);
+	m_scale = WorldMat2ScaleVec(lookAtMat);
+	Quaternion rot(lookAtMat);
+	m_rotation = rot;
+}
+
+void HyEngine::Transform::LookAt(Vector3 & position)
+{
+	D3DXMATRIX lookAtMat;
+	D3DXVECTOR3 vLook = m_position - position;
+	D3DXMatrixLookAtLH
+	(
+		&lookAtMat,
+		&m_position.operator const D3DXVECTOR3(),
+		&vLook,
+		&Up().operator const D3DXVECTOR3()
+	);
+	m_position = WorldMat2PosVec(lookAtMat);
+	m_scale = WorldMat2ScaleVec(lookAtMat);
+	Quaternion rot(lookAtMat);
+	m_rotation = rot;
 }
 
 void Transform::Rotate(const Vector3 & eulers)
 {
+	// don't use
+	assert(false);
 }
-
-void Transform::SetParent(Transform * parent)
-{
-	m_parent = parent;
-	if (m_parent == nullptr)
-		m_root = nullptr;
-	else if (m_parent->m_parent == nullptr)
-		m_root = m_parent;
-	else
-	{
-		m_root = m_parent->m_root;
-	}
-}
-
+//
+//void Transform::SetParent(Transform * parent)
+//{
+//	m_parent = parent;
+//	if (m_parent == nullptr)
+//		m_root = nullptr;
+//	else if (m_parent->m_parent == nullptr)
+//		m_root = m_parent;
+//	else
+//	{
+//		m_root = m_parent->m_root;
+//	}
+//}
+//

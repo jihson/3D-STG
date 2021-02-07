@@ -30,6 +30,21 @@ void HyEngine::Camera::SetProjectionMatrix(float fovy, float screenAspect, float
 	);
 }
 
+void HyEngine::Camera::SetViewMatrix(const D3DXVECTOR3 & target)
+{
+	D3DXMatrixLookAtLH
+	(
+		&m_matView,
+		&m_pTransform->m_position.operator D3DXVECTOR3(),
+		&target,
+		&Vector3::Up
+	);
+}
+
+void HyEngine::Camera::Initialize()
+{
+}
+
 void HyEngine::Camera::Update()
 {
 
@@ -42,7 +57,7 @@ Vector3 HyEngine::Camera::GetPosition() const
 
 D3DXMATRIX HyEngine::Camera::GetViewMatrix() const
 {
-	D3DXMATRIX viewMat;
+	/*D3DXMATRIX viewMat;
 	D3DXMatrixLookAtLH
 	(
 		&viewMat,
@@ -50,8 +65,8 @@ D3DXMATRIX HyEngine::Camera::GetViewMatrix() const
 		&m_pTransform->Forward().operator D3DXVECTOR3(),
 		&m_pTransform->Up().operator D3DXVECTOR3()
 	);
-
-	return viewMat;
+*/
+	return m_matView;
 }
 
 D3DXMATRIX HyEngine::Camera::GetProjectionMatrix() const

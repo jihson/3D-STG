@@ -76,6 +76,7 @@ if (p)\
 #include "MathUtils.h"
 #include "LinearMath.h"
 #include "UIDGen.h"
+#include "DxMath.h"
 
 
 // Core

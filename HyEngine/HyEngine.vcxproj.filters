@@ -152,6 +152,18 @@
     <ClInclude Include="Include\Camera.h">
       <Filter>Camera</Filter>
     </ClInclude>
+    <ClInclude Include="Include\DxMath.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DebugGround.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\IndexTypes.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GameObjectQuad.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -228,6 +240,18 @@
     </ClCompile>
     <ClCompile Include="Source\Camera.cpp">
       <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DxMath.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DebugGround.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\IndexTypes.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObjectQuad.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

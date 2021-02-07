@@ -22,7 +22,7 @@ Engine::Engine()
 	m_pMouse = new IO::Mouse();
 	m_pKeyboard = new IO::Keyboard();
 	m_pTimer = new Timer();
-	m_pCamera = new Camera();
+	
 }
 Engine::~Engine()
 {
@@ -41,17 +41,28 @@ bool Engine::Initialize(HWND hWnd, EngineConfig engineConfig)
 
 	m_pTimer->start();
 
+	assert(engineConfig.scenes.size() != 0);
+
 	this->engineConfig = engineConfig;
 	m_scenes = engineConfig.scenes;
-
-	// set default camera option
-	m_pCamera->SetProjectionMatrix
-	(
-		D3DX_PI * 0.5f , // 90 - degree
-		WinMaxWidth / WinMaxHeight,
-		1.0f, 
-		1000.0f
-	);
+	if (engineConfig.camera)
+	{
+		m_pCamera = engineConfig.camera;
+	}
+	else
+	{
+		m_pCamera = new Camera();
+		//m_pCamera->SetView
+		// set default camera option
+		m_pCamera->SetProjectionMatrix
+		(
+			D3DX_PI * 0.5f, // 90 - degree
+			WinMaxWidth / WinMaxHeight,
+			1.0f,
+			1000.0f
+		);
+	}
+	m_pCamera->Initialize();
 
 
 
@@ -81,6 +92,7 @@ bool Engine::Load()
 
 void Engine::SimulateFrame()
 {
+	m_pCamera->Update();
 	m_pKeyboard->Update();
 	m_pMouse->Update();
 	m_pActiveScene->UpdateScene();

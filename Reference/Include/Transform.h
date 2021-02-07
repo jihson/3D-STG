@@ -70,6 +70,8 @@ namespace HyEngine
 
 		D3DXMATRIX GetWorldMatrix();
 
+
+
 		// -----------------------------------------------------------
 		// PUBLIC METHODS
 		// ---------------------------------------------------------------
@@ -79,12 +81,13 @@ namespace HyEngine
 		//Returns a transform child by index.
 		Transform* GetChild(int index);
 
-		void LookAt(const Transform& target);
+		void LookAt(Transform& target);
+		void LookAt(Vector3& position);
 		// Use Transform.Rotate to rotate GameObjects in a variety of ways.
 		// The rotation is often provided as an Euler angle and not a Quaternion.
 		void Rotate(const Vector3& eulers);
 
-		void SetParent(Transform* parent);
+		//void SetParent(Transform* parent);
 
 
 		//----------------------------------------------------------------------------------------------------------------
@@ -95,11 +98,11 @@ namespace HyEngine
 		Vector3		     m_scale;
 		const Vector3    m_originalPosition;
 		const Quaternion m_originalRotation;
-		Vector3          m_localPosition;
-		Quaternion		 m_localRotation;
-		Vector3			 m_localScale;
-		Transform *		 m_parent;
-		Transform *	     m_root;
+		//Vector3          m_localPosition;
+		//Quaternion		 m_localRotation;
+		//Vector3			 m_localScale;
+		//Transform *		 m_parent;
+		//Transform *	     m_root;
 
 		D3DXMATRIX m_worldMatrix;
 	public:

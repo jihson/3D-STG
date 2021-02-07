@@ -2,6 +2,9 @@
 #include "TestScene2.h"
 #include "Fighter2.h"
 #include "Renderer.h"
+#include "SampleCamera.h"
+#include "DebugGround.h"
+#include "GameObjectQuad.h"
 
 void TestScene2::Update()
 {
@@ -20,9 +23,19 @@ void TestScene2::Load()
 	
 	
 		// 아래 예제는 active true로 시작하는 예
-		Fighter2::Create(this);
-	
-	#pragma endregion
+	GameObject*  player = Fighter2::Create(this);
+	// 이거 반드시 해줘야함
+	AddOpaqueObject(player);
+
+
+	SampleCamera* sampleCamera = static_cast<SampleCamera*>(ENGINE->GetCamera());
+	sampleCamera->SetTarget(player->m_pTransform);
+
+	AddOpaqueObject(DebugGround::Create(this));
+
+	AddOpaqueObject(GameObjectQuad::Create(this));
+
+#pragma endregion
 }
 
 void TestScene2::Unload()

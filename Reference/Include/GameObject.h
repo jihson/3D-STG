@@ -18,12 +18,11 @@ namespace HyEngine
 
 
 	public:
-		virtual void Render() = 0;
+		virtual void Render();
 		void Update();
 		void LateUpdate();
 
 		bool CompareTag(std::wstring tag);
-
 		inline ERenderType GetRenderType()const { return m_renderType; }
 
 		inline Component* AddComponent(Component* component)

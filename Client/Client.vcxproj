@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Fighter2.h" />
+    <ClInclude Include="Include\SampleCamera.h" />
     <ClInclude Include="Include\stdafx.h" />
     <ClInclude Include="Include\Test2.h" />
     <ClInclude Include="Include\TestComponent2.h" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Fighter2.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\SampleCamera.cpp" />
     <ClCompile Include="Source\Test2.cpp" />
     <ClCompile Include="Source\TestComponent2.cpp" />
     <ClCompile Include="Source\TestScene2.cpp" />

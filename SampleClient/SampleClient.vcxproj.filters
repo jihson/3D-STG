@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entry">
+      <UniqueIdentifier>{299c3486-a90c-4406-a176-296532253631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo">
+      <UniqueIdentifier>{66580262-0107-44cf-a57e-4405600e9fcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\00.Default_Object">
+      <UniqueIdentifier>{ce8c1cae-b2fe-4b77-85df-fc703460d06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\00.Default_Object\Scene">
+      <UniqueIdentifier>{8aacc5a9-c108-4b86-b17d-81692ba63e87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\00.Default_Object\GameObject">
+      <UniqueIdentifier>{de8ddd3e-20e1-480b-9093-2a9069c129ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\00.Default_Object\Component">
+      <UniqueIdentifier>{bbf366e5-a882-411b-9246-724ffa5b61d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo\00.Default_Object\Camera">
+      <UniqueIdentifier>{9398a7dc-219e-4006-a583-3a351167c071}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\stdafx.h" />
+    <ClInclude Include="Include\DemoCamera00.h">
+      <Filter>Demo\00.Default_Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DemoScene00.h">
+      <Filter>Demo\00.Default_Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DemoComponent00.h">
+      <Filter>Demo\00.Default_Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DemoPlayer00.h">
+      <Filter>Demo\00.Default_Object\GameObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoCamera00.cpp">
+      <Filter>Demo\00.Default_Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoScene00.cpp">
+      <Filter>Demo\00.Default_Object\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoComponent00.cpp">
+      <Filter>Demo\00.Default_Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DemoPlayer00.cpp">
+      <Filter>Demo\00.Default_Object\GameObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
