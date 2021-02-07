@@ -2,8 +2,8 @@
 #include "Scene.h"
 #include "Renderer.h"
 #include "GameObject.h"
-
 using namespace HyEngine;
+
 
 Scene::Scene()
 {
@@ -41,16 +41,99 @@ void Scene::UpdateScene()
 		이렇게 해도 괜찮은지 검토해야함.
 	*/
 
+	UpdateGameObject();
+	UpdateUI();
+	UpdateLight();
+	UpdateSkybox();
+
+	Update();
+
+	LateUpdateGameObject();
+
+
+	for (auto& removeFunction : m_removeFunctions)
+	{
+		removeFunction();
+	}
+	m_removeFunctions.clear();
+}
+
+
+void Scene::RenderScene(Renderer * renderer)
+{
+	RenderGameObject(renderer);
+	RenderUI(renderer);
+	RenderLight(renderer);
+	RenderSkybox(renderer);
+}
+
+void HyEngine::Scene::RenderGameObject(Renderer* renderer) const
+{
+	renderer->SetOpaqueContext();
+	for (auto& opaqueObj : m_opaqueObjects)
+	{
+		if (opaqueObj->GetActive())
+			opaqueObj->Render();
+	}
+
+	renderer->SetAlphaContext();
+	for (auto& alphaObj : m_alphaObjects)
+	{
+		if (alphaObj->GetActive())
+			alphaObj->Render();
+	}
+}
+
+void HyEngine::Scene::RenderUI(Renderer* renderer) const
+{
+	for (auto& ui : m_uiObejcts)
+	{
+		ui->Render();
+	}
+}
+
+void HyEngine::Scene::RenderLight(Renderer* renderer) const
+{
+	for (auto& l : m_lights)
+		l->Render();
+}
+
+void HyEngine::Scene::RenderSkybox(Renderer* renderer) const
+{
+	m_pSkybox->Render();
+}
+
+void HyEngine::Scene::UpdateGameObject()
+{
+
 	for (auto& obj : m_opaqueObjects)
 		obj->Update();
 	for (auto& obj : m_alphaObjects)
 		obj->Update();
 	for (auto& obj : m_invisibleObjects)
 		obj->Update();
-	
-	Update();
+}
 
+void HyEngine::Scene::UpdateUI()
+{
+	for (auto& ui : m_uiObejcts)
+		ui->Update();
+}
 
+void HyEngine::Scene::UpdateLight()
+{
+	for (auto& l : m_lights)
+		l->Update();
+}
+
+void HyEngine::Scene::UpdateSkybox()
+{
+	if (m_pSkybox)
+		m_pSkybox->Update();
+}
+
+void HyEngine::Scene::LateUpdateGameObject()
+{
 	for (auto& obj : m_opaqueObjects)
 	{
 		obj->LateUpdate();
@@ -87,34 +170,6 @@ void Scene::UpdateScene()
 			});
 		}
 	}
-
-	for (auto& removeFunction : m_removeFunctions)
-	{
-		removeFunction();
-	}
-	m_removeFunctions.clear();
-}
-
-
-void Scene::RenderScene(Renderer * renderer)
-{
-	renderer->SetOpaqueContext();
-	for (auto& opaqueObj : m_opaqueObjects)
-	{
-		if (opaqueObj->GetActive())
-			renderer->Render(opaqueObj);
-	}
-	
-	renderer->SetAlphaContext();
-	for (auto& alphaObj : m_alphaObjects)
-	{
-		if (alphaObj->GetActive())
-			renderer->Render(alphaObj);
-	}
-
-	RenderUI();
-	RenderLight();
-	RenderSkybox();
 }
 
 void Scene::AddOpaqueObject(GameObject * obj)
@@ -137,6 +192,7 @@ void Scene::AddOpaqueObject(GameObject * obj)
 
 void Scene::AddAlphaObject(GameObject * obj)
 {
+	assert(obj->GetRenderType() == ERenderType::RenderAlpha);
 	if (m_reserveObjFunctions.size() != 0)
 	{
 		for (int i = 0; i < m_reserveObjFunctions.size(); i++)
@@ -153,6 +209,7 @@ void Scene::AddAlphaObject(GameObject * obj)
 
 void Scene::AddInvisibleObject(GameObject * obj)
 {
+	assert(obj->GetRenderType() == ERenderType::None);
 	if (m_reserveObjFunctions.size() != 0)
 	{
 		for (int i = 0; i < m_reserveObjFunctions.size(); i++)
@@ -165,6 +222,21 @@ void Scene::AddInvisibleObject(GameObject * obj)
 		}
 	}
 	m_invisibleObjects.push_back(obj);
+}
+
+void HyEngine::Scene::AddUserInterface(IUserInterface * ui)
+{
+	m_uiObejcts.push_back(ui);
+}
+
+void HyEngine::Scene::AddLight(ILight * light)
+{
+	m_lights.push_back(light);
+}
+
+void HyEngine::Scene::SetSkybox(ISkybox * skybox)
+{
+	m_pSkybox = skybox;
 }
 
 GameObject * HyEngine::Scene::GetGameObject(std::wstring name)

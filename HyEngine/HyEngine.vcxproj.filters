@@ -34,9 +34,6 @@
     <Filter Include="AI">
       <UniqueIdentifier>{52025736-8201-4289-b47e-c4a223829451}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Behaviour">
-      <UniqueIdentifier>{773fbacb-3926-44af-b90c-6477f542809d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Time">
       <UniqueIdentifier>{e9700cad-b1ac-4768-bf95-e4ddaf9b4ce8}</UniqueIdentifier>
     </Filter>
@@ -48,6 +45,15 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{a3c8546a-ef7e-4bc5-a9d6-724bd5e5fb4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{1069be73-fc64-4309-9097-7d6c5f3a3ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Light">
+      <UniqueIdentifier>{126f391d-9056-4385-9eee-bafcbe484813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skybox">
+      <UniqueIdentifier>{35c40f65-8b53-46b0-8b04-e1fb38f19c16}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +170,18 @@
     <ClInclude Include="Include\GameObjectQuad.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="Include\IUserInterface.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ISkybox.h">
+      <Filter>Skybox</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ILight.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\UserInterface.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -252,6 +270,9 @@
     </ClCompile>
     <ClCompile Include="Source\GameObjectQuad.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UserInterface.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

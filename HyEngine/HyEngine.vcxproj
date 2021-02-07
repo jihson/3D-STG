@@ -135,9 +135,12 @@
     <ClInclude Include="Include\EventTypes.h" />
     <ClInclude Include="Include\GameObject.h" />
     <ClInclude Include="Include\GameObjectQuad.h" />
+    <ClInclude Include="Include\ILight.h" />
     <ClInclude Include="Include\IndexBuffer.h" />
     <ClInclude Include="Include\IndexTypes.h" />
     <ClInclude Include="Include\IRenderable.h" />
+    <ClInclude Include="Include\ISkybox.h" />
+    <ClInclude Include="Include\IUserInterface.h" />
     <ClInclude Include="Include\Keyboard.h" />
     <ClInclude Include="Include\Layer.h" />
     <ClInclude Include="Include\LinearMath.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="Include\Timer.h" />
     <ClInclude Include="Include\Transform.h" />
     <ClInclude Include="Include\UIDGen.h" />
+    <ClInclude Include="Include\UserInterface.h" />
     <ClInclude Include="Include\VertexBuffer.h" />
     <ClInclude Include="Include\VertexTypes.h" />
   </ItemGroup>
@@ -188,6 +192,7 @@
     <ClCompile Include="Source\Timer.cpp" />
     <ClCompile Include="Source\Transform.cpp" />
     <ClCompile Include="Source\UIDGen.cpp" />
+    <ClCompile Include="Source\UserInterface.cpp" />
     <ClCompile Include="Source\VertexBuffer.cpp" />
     <ClCompile Include="Source\VertexTypes.cpp" />
   </ItemGroup>
