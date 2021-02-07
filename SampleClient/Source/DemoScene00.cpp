@@ -28,8 +28,11 @@ void DemoScene00::Load()
 	AddOpaqueObject(player);
 
 
+
 	DemoCamera00* sampleCamera = static_cast<DemoCamera00*>(ENGINE->GetCamera());
 	sampleCamera->SetTarget(player->m_pTransform);
+
+
 
 	AddOpaqueObject(DebugGround::Create(this));
 

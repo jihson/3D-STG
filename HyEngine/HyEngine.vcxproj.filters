@@ -179,9 +179,6 @@
     <ClInclude Include="Include\ILight.h">
       <Filter>Light</Filter>
     </ClInclude>
-    <ClInclude Include="Include\UserInterface.h">
-      <Filter>UI</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -270,9 +267,6 @@
     </ClCompile>
     <ClCompile Include="Source\GameObjectQuad.cpp">
       <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\UserInterface.cpp">
-      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

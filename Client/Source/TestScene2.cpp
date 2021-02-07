@@ -35,6 +35,7 @@ void TestScene2::Load()
 
 	AddOpaqueObject(GameObjectQuad::Create(this));
 
+
 #pragma endregion
 }
 

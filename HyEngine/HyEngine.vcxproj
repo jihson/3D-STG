@@ -160,7 +160,6 @@
     <ClInclude Include="Include\Timer.h" />
     <ClInclude Include="Include\Transform.h" />
     <ClInclude Include="Include\UIDGen.h" />
-    <ClInclude Include="Include\UserInterface.h" />
     <ClInclude Include="Include\VertexBuffer.h" />
     <ClInclude Include="Include\VertexTypes.h" />
   </ItemGroup>
@@ -192,7 +191,6 @@
     <ClCompile Include="Source\Timer.cpp" />
     <ClCompile Include="Source\Transform.cpp" />
     <ClCompile Include="Source\UIDGen.cpp" />
-    <ClCompile Include="Source\UserInterface.cpp" />
     <ClCompile Include="Source\VertexBuffer.cpp" />
     <ClCompile Include="Source\VertexTypes.cpp" />
   </ItemGroup>
