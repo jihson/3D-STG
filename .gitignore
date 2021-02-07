@@ -41,3 +41,7 @@
 *.ilk
 *.idb
 *.opendb
+*.suo
+*.obj
+*.exp
+
